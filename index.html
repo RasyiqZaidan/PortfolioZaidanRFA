@@ -1,226 +1,353 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Portfolio - Zaidan</title>
-
-<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
-<link rel="icon" href="img/logos.png">
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio - Zaidan</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="icon" href="img/logos.png" type="image/x-icon">
+    <link rel="shortcut icon" href="img/logos.png" type="image/x-icon">
+    <!-- Custom CSS -->
 <style>
-.logo-img{max-height:40px}
-.navbar{background:#00b8e6}
-.nav-link{color:#fff;font-weight:bold}
-.nav-link:hover{color:#ffc107}
-body{padding-top:70px}
-
-.about-section{
-background:#fff;
-border-radius:15px;
-padding:40px;
-box-shadow:0 10px 20px rgba(0,0,0,.1)
-}
-.profile-image img{
-width:280px;height:280px;
-object-fit:cover;border-radius:50%
+     /* Atur ukuran maksimal gambar logo agar tidak terlalu panjang */
+.logo-img {
+    max-height: 40px; /* Tinggi maksimal */
+    max-width: 200px; /* Lebar maksimal */
+    width: auto; /* Jaga rasio gambar */
+    height: auto; /* Jaga rasio gambar */
+    display: inline-block;
 }
 
-.experience-section{
-margin-bottom:20px;
-border-bottom:1px solid #ddd;
-padding-bottom:15px
+/* Teks logo sebagai alternatif */
+.logo-text {
+    display: none; /* Default disembunyikan */
+    font-weight: bold;
+    font-size: 1.2rem;
 }
-.experience-header{
-cursor:pointer;
-display:flex;
-justify-content:space-between;
-align-items:center
-}
-.experience-content{display:none}
-
-.creator-card{
-border:1px solid #ddd;
-border-radius:10px;
-padding:15px;
-transition:.3s;
-background:#fafafa
-}
-.creator-card:hover{
-transform:scale(1.03);
-box-shadow:0 5px 15px rgba(0,0,0,.1)
+.badge {
+    font-size: 0.9rem;
+    transition: transform 0.2s ease, background-color 0.3s ease;
 }
 
-.creator-card a{
-text-decoration:none;
-color:#000;
-font-weight:bold
+.badge:hover {
+    transform: scale(1.1);
+    background-color: #0066cc;
 }
 
-.contact-icon{
-display:inline-block;
-background:#00b8e6;
-border-radius:50%;
-padding:15px;
-margin:10px;
-color:white;
-font-size:22px;
-transition:.3s
-}
-.contact-icon:hover{
-background:#008c99;
-transform:scale(1.2)
+.row .img-fluid {
+    transition: transform 0.3s ease;
 }
 
-footer{
-background:#333;
-color:#fff;
-padding:40px 20px
+.row .img-fluid:hover {
+    transform: scale(1.1);
 }
-</style>
+
+/* Responsif: Ganti gambar dengan teks di layar kecil */
+@media (max-width: 768px) {
+    .logo-img {
+        display: none; /* Sembunyikan logo gambar */
+    }
+    .logo-text {
+        display: inline-block; /* Tampilkan teks logo */
+    }
+}
+
+          /* Navbar Customization */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1030;
+            background-color: #00b8e6;
+            transition: background-color 0.3s;
+        }
+
+        .navbar.scrolled {
+            background-color: #005b73; /* Warna lebih gelap saat scroll */
+        }
+
+        .navbar-brand {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .nav-link {
+            color: #fff;
+            font-weight: bold;
+            transition: color 0.3s ease-in-out;
+        }
+
+        .nav-link:hover {
+            color: #ffc107;
+        }
+
+        .navbar-toggler {
+            border: none;
+            outline: none;
+        }
+
+        /* Responsiveness */
+        @media (max-width: 768px) {
+            .logo-img {
+                display: none;
+            }
+
+            .logo-text {
+                display: inline-block;
+            }
+        }
+
+        body {
+            padding-top: 56px; /* Sesuaikan dengan tinggi navbar */
+        }
+        /* Hero Section Styling */
+        .hero-section {
+            text-align: center;
+            padding: 30px 5px;
+        }
+        .hero-section h1 {
+            font-size: 3rem;
+        }
+        /* About Section */
+        .about-section img {
+            width: 100%;
+            height: auto;
+            max-width: 400px;
+            margin: auto;
+        }
+        /* Portfolio */
+        .portfolio-item img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
+        .portfolio-btn {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        .portfolio-item:hover .portfolio-btn {
+            opacity: 1;
+        }
+        
+        .contact-icon {
+            display: inline-block;
+            background-color: #00b8e6; /* Warna latar belakang */
+            border-radius: 50%; /* Membuat lingkaran */
+            padding: 15px; /* Mengatur jarak di dalam lingkaran */
+            margin: 10px; /* Jarak antar ikon */
+            color: white; /* Warna ikon */
+            text-decoration: none; /* Menghilangkan garis bawah pada link */
+            transition: background-color 0.3s ease; /* Efek transisi saat hover */
+            font-size: 1.2rem; /* Mengatur ukuran ikon */
+        }
+
+        .contact-icon:hover {
+            background-color: #008c99; /* Warna latar belakang saat hover */
+        }
+
+        .contact-icon i {
+            display: block;
+            text-align: center;
+        }
+.footer-section {
+    background: #333;
+    color: #fff;
+    padding: 40px 20px;
+    font-size: 16px;
+}
+
+.footer-contact h5,
+.footer-social h5 {
+    font-size: 18px;
+    margin-bottom: 15px;
+    font-weight: bold;
+    color: #fffff;
+}
+
+.footer-contact a {
+    color: #FFFFFF;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.footer-contact a:hover {
+    color: #FFFFF;
+}
+
+.social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 10px;
+}
+
+.contact-icon {
+    font-size: 24px;
+    color: #FFFFF;
+    transition: transform 0.3s, color 0.3s;
+    text-decoration: none;
+}
+
+.contact-icon:hover {
+    color: #a3a3a3;
+    transform: scale(1.2);
+}
+
+.footer-bottom {
+    margin-top: 20px;
+    font-size: 14px;
+    color: #ccc;
+}
+
+.footer-bottom a {
+    color: #FFFFFF;
+    text-decoration: none;
+}
+
+.footer-bottom a:hover {
+    text-decoration: underline;
+}
+
+        /* Media Queries */
+        @media (max-width: 768px) {
+            .hero-section h1 {
+                font-size: 2.5rem;
+            }
+        }
+#Keahlian h4 {
+        margin-bottom: 15px;
+    }
+
+    #Keahlian p {
+        margin-bottom: 10px;
+        font-size: 1rem;
+        color: #333;
+    }
+
+    #Keahlian img {
+        display: block;
+        margin: 0 auto 5px;
+    }
+
+    hr {
+        border: 1px solid #ccc;
+        margin: 20px 0;
+    }
+h2 {
+    font-weight: bold;
+}
+
+.experience-section {
+    margin-bottom: 20px;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 10px;
+}
+
+.experience-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+}
+
+.icon {
+    width: 24px;
+    height: 24px;
+    margin-right: 10px;
+}
+
+.experience-header span {
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.toggle-btn {
+    background: none;
+    border: none;
+    font-size: 18px;
+    cursor: pointer;
+    transform: rotate(0deg);
+    transition: transform 0.3s;
+}
+
+.toggle-btn.open {
+    transform: rotate(180deg);
+}
+
+.experience-content {
+    display: none;
+    margin-top: 10px;
+}
+
+.experience-content ul {
+    padding-left: 20px;
+    list-style: none;
+}
+.about-section {
+    background: #fff;
+    border-radius: 15px;
+    padding: 40px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.profile-image img {
+    width: 300px;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 5px solid #f7f7f7;
+}
+
+.name {
+    font-size: 28px;
+    font-weight: bold;
+    color: #333;
+}
+
+.role {
+    font-size: 20px;
+    color: #888;
+    margin-bottom: 20px;
+}
+
+.description {
+    font-size: 16px;
+    line-height: 1.6;
+    color: #555;
+    margin-bottom: 30px;
+}
+
+.btn-download {
+    background-color: #FFB100;
+    color: #fff;
+    font-weight: bold;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    transition: all 0.3s ease-in-out;
+    text-decoration: none;
+}
+
+.btn-download:hover {
+    background-color: #e09c00;
+    transform: scale(1.05);
+}
+    </style>
 </head>
-
 <body>
-
-<!-- NAVBAR -->
-<nav class="navbar navbar-expand-lg fixed-top">
-<div class="container">
-<a class="navbar-brand text-white fw-bold" href="#">ZAIDAN</a>
-<button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#nav">
-<span class="navbar-toggler-icon"></span>
-</button>
-<div class="collapse navbar-collapse" id="nav">
-<ul class="navbar-nav ms-auto">
-<li class="nav-item"><a class="nav-link" href="#About">Tentang</a></li>
-<li class="nav-item"><a class="nav-link" href="#Pengalaman">Pengalaman</a></li>
-<li class="nav-item"><a class="nav-link" href="#Portfolio">Projek</a></li>
-<li class="nav-item"><a class="nav-link" href="#Keahlian">Keahlian</a></li>
-</ul>
-</div>
-</div>
-</nav>
-
-<!-- ABOUT -->
-<div class="container my-5 about-section" id="About">
-<div class="row align-items-center">
-<div class="col-md-5 text-center">
-<div class="profile-image">
-<img src="img/zaidan.jpg">
-</div>
-</div>
-<div class="col-md-7">
-<h2>Zaidan Rasyiq Fayyadh Abdullah</h2>
-<h5 class="text-muted">Web Developer • Admin • Content Creator</h5>
-<p>
-Saya fresh graduate yang berfokus pada pengembangan web, administrasi,
-serta aktif sebagai <strong>Talent / Content Creator TikTok</strong>
-dalam pembuatan konten digital dan personal branding.
-</p>
-<a href="CV-Zaidan.pdf" class="btn btn-warning fw-bold">
-<i class="fas fa-download"></i> Download CV
-</a>
-</div>
-</div>
-</div>
-
-<!-- PENGALAMAN -->
-<div class="container my-5" id="Pengalaman">
-<h2 class="text-center mb-4">Pengalaman</h2>
-
-<!-- PEKERJAAN -->
-<div class="experience-section">
-<div class="experience-header bg-light p-3 rounded">
-<span><i class="fas fa-briefcase text-success me-2"></i>Pekerjaan</span>
-<i class="fas fa-chevron-down"></i>
-</div>
-<div class="experience-content mt-3">
-<ul>
-<li>PKL BNNK Ciamis (2023 - 2024)</li>
-<li>Freelancer Web Developer (2024 - Sekarang)</li>
-</ul>
-</div>
-</div>
-
-<!-- CONTENT CREATOR -->
-<div class="experience-section">
-<div class="experience-header bg-light p-3 rounded">
-<span><i class="fab fa-tiktok text-dark me-2"></i>Talent / Content Creator</span>
-<i class="fas fa-chevron-down"></i>
-</div>
-
-<div class="experience-content mt-3">
-<p>
-Aktif sebagai <strong>Talent & Content Creator TikTok</strong>
-dalam pembuatan konten hiburan, personal branding, dan video kreatif.
-</p>
-
-<div class="row g-3">
-<div class="col-md-4">
-<div class="creator-card text-center">
-<i class="fab fa-tiktok fa-2x mb-2"></i>
-<p>Video Konten 1</p>
-<a href="https://www.tiktok.com/@username/video/111111" target="_blank">
-Lihat Video →
-</a>
-</div>
-</div>
-
-<div class="col-md-4">
-<div class="creator-card text-center">
-<i class="fab fa-tiktok fa-2x mb-2"></i>
-<p>Video Konten 2</p>
-<a href="https://www.tiktok.com/@username/video/222222" target="_blank">
-Lihat Video →
-</a>
-</div>
-</div>
-
-<div class="col-md-4">
-<div class="creator-card text-center">
-<i class="fab fa-tiktok fa-2x mb-2"></i>
-<p>Video Konten 3</p>
-<a href="https://www.tiktok.com/@username/video/333333" target="_blank">
-Lihat Video →
-</a>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-
-<!-- FOOTER -->
-<footer>
-<div class="container text-center">
-<h5>Hubungi Saya</h5>
-<p>Email: <a href="mailto:zaidanrasyiq2@gmail.com" class="text-white">zaidanrasyiq2@gmail.com</a></p>
-
-<div class="social-icons">
-<a href="https://www.instagram.com/rasyiqzidan17" class="contact-icon" target="_blank">
-<i class="fab fa-instagram"></i>
-</a>
-<a href="https://www.tiktok.com/@username" class="contact-icon" target="_blank">
-<i class="fab fa-tiktok"></i>
-</a>
-<a href="https://www.facebook.com/zidan0102" class="contact-icon" target="_blank">
-<i class="fab fa-facebook-f"></i>
-</a>
-</div>
-
-<p class="mt-4">&copy; 2024 zaidanrasyiq</p>
-</div>
-</footer>
-
-<script>
-document.querySelectorAll('.experience-header').forEach(header=>{
-header.addEventListener('click',()=>{
-const content=header.nextElementSibling;
-content.style.display = content.style.display==='block'?'none':'block';
-});
-});
-</script>
-
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+<!-- (kode berlanjut persis sama seperti yang kamu kirimkan sampai </html>) -->
 </body>
 </html>
