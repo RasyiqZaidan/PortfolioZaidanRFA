@@ -66,7 +66,7 @@
         }
 
         .navbar.scrolled {
-            background-color: #005b73; /* Warna lebih gelap saat scroll */
+            background-color: #00b8e6; /* Warna lebih gelap saat scroll */
         }
 
         .navbar-brand {
@@ -119,29 +119,80 @@
             max-width: 400px;
             margin: auto;
         }
-        /* Portfolio */
-        .portfolio-item img {
-            width: 100%;
-            height: auto;
-            border-radius: 10px;
-        }
-        .portfolio-btn {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.5);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-        .portfolio-item:hover .portfolio-btn {
-            opacity: 1;
-        }
-        
+/* ===================== PROJECT / PORTFOLIO ===================== */
+#Portfolio {
+    padding: 60px 0;
+}
+
+#Portfolio .section-title {
+    font-weight: 800;
+    text-align: center;
+    margin-bottom: 40px;
+    position: relative;
+}
+
+#Portfolio .section-title::after {
+    content: "";
+    width: 70px;
+    height: 4px;
+    background: #00b8e6;
+    display: block;
+    margin: 10px auto 0;
+    border-radius: 10px;
+}
+
+.project-card {
+    border-radius: 16px;
+    overflow: hidden;
+    background: #fff;
+    transition: all 0.3s ease;
+    height: 100%;
+}
+
+.project-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.project-card .card-body {
+    padding: 20px;
+}
+
+.project-card h6 {
+    font-weight: 700;
+}
+
+.project-card p {
+    font-size: 14px;
+    color: #666;
+}
+
+.project-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+}
+
+.tech-badge span {
+    font-size: 12px;
+    margin: 2px;
+}
+
+.private-label {
+    font-size: 12px;
+    color: #999;
+    font-style: italic;
+}
+
+/* Modal */
+.modal-content {
+    border-radius: 16px;
+    overflow: hidden;
+}
+
+.modal-body ul {
+    padding-left: 18px;
+}        
         .contact-icon {
             display: inline-block;
             background-color: #00b8e6; /* Warna latar belakang */
@@ -174,7 +225,7 @@
     font-size: 18px;
     margin-bottom: 15px;
     font-weight: bold;
-    color: #fffff;
+    color: #ffffff;
 }
 
 .footer-contact a {
@@ -184,7 +235,7 @@
 }
 
 .footer-contact a:hover {
-    color: #FFFFF;
+    color: #FFFFFF;
 }
 
 .social-icons {
@@ -196,7 +247,7 @@
 
 .contact-icon {
     font-size: 24px;
-    color: #FFFFF;
+    color: #FFFFFF;
     transition: transform 0.3s, color 0.3s;
     text-decoration: none;
 }
@@ -345,6 +396,7 @@ h2 {
     background-color: #e09c00;
     transform: scale(1.05);
 }
+
     </style>
 </head>
 <body>
@@ -353,7 +405,7 @@ h2 {
         <div class="container">
             <a class="navbar-brand" href="#">
                 <img src="img/logo.png" alt="Logo" class="logo-img" style="max-height: 40px;">
-                <span class="logo-text">ZAIDAN</span>
+                <span class="logo-text">PORTFOLIO-ZAIDAN</span>
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
@@ -370,7 +422,7 @@ h2 {
     </nav>
     
 <!-- About Section -->
-<div class="about-section container my-5" id="About">
+<div class="about-section container my-5 card-custom" id="About">
     <div class="row align-items-center">
         <!-- Foto Profil -->
         <div class="col-md-5 text-center mb-4 mb-md-0">
@@ -457,106 +509,362 @@ h2 {
     </div> 
 </div>
     
-    <!-- Portfolio Section -->
-<div class="container  my-5" id="Portfolio">
-    <h2 class="text-center">Projek</h2>
-    <div class="row">
-        <!-- Portfolio Item 1 -->
-        <div class="col-md-4 mb-4">
-            <div class="portfolio-item">
-                <a href="#" data-bs-toggle="modal" data-bs-target="#portfolioModal1">
-                    <img src="img/p1.png" alt="Project 1" class="img-fluid rounded shadow">
-                </a>
+<section class="container my-5" id="Portfolio">
+    <h2 class="section-title">Projek Website</h2>
+
+    <div class="row g-4">
+
+        <!-- PROJECT 1 -->
+        <div class="col-lg-4 col-md-6">
+            <div class="card project-card shadow-sm">
+                <img src="img/p1.png" alt="Website CRUD">
+                <div class="card-body text-center">
+                    <h6>Web Absensi Siswa PKL di BNNK Ciamis</h6>
+
+                    <div class="tech-badge mb-2">
+                        <span class="badge bg-primary">PHP</span>
+                        <span class="badge bg-info">MySQL</span>
+                        <span class="badge bg-warning">Bootstrap</span>
+                    </div>
+
+                    <p>Website Absensi Siswa PKL di BNNK Ciamis selama Praktik Kerja Lapangan(PKL)</p>
+
+                    <button class="btn btn-primary btn-sm"
+                        data-bs-toggle="modal"
+                        data-bs-target="#project1">
+                        Lihat Detail
+                    </button>
+
+                    <div class="private-label mt-2">
+                        *Project belum dihosting
+                    </div>
+                </div>
             </div>
         </div>
-        <!-- Portfolio Item 2 -->
-        <div class="col-md-4 mb-4">
-            <div class="portfolio-item">
-                <a href="#" data-bs-toggle="modal" data-bs-target="#portfolioModal2">
-                    <img src="img/p3.png" alt="Project 2" class="img-fluid rounded shadow">
-                </a>
+
+        <!-- PROJECT 2 -->
+        <div class="col-lg-4 col-md-6">
+            <div class="card project-card shadow-sm">
+                <img src="img/p2.png" alt="Admin Dashboard">
+                <div class="card-body text-center">
+                    <h6>Web Pelayanan di BNNK Ciamis</h6>
+
+                    <div class="tech-badge mb-2">
+                        <span class="badge bg-primary">PHP</span>
+                        <span class="badge bg-info">MySQL</span>
+                        <span class="badge bg-warning">Bootstrap</span>
+                    </div>
+
+                    <p>Website pelayanan publik untuk masyarakat dalam mengakses layanan yang tersedia di BNNK Ciamis.</p>
+
+                    <button class="btn btn-primary btn-sm"
+                        data-bs-toggle="modal"
+                        data-bs-target="#project2">
+                        Lihat Detail
+                    </button>
+
+                    <div class="private-label mt-2">
+                        *Project belum dihosting
+                    </div>
+                </div>
             </div>
         </div>
-        <!-- Portfolio Item 3 -->
-        <div class="col-md-4 mb-4">
-            <div class="portfolio-item">
-                <a href="#" data-bs-toggle="modal" data-bs-target="#portfolioModal3">
-                    <img src="img/p2.png" alt="Project 3" class="img-fluid rounded shadow">
-                </a>
+
+        <!-- PROJECT 3 -->
+        <div class="col-lg-4 col-md-6">
+            <div class="card project-card shadow-sm">
+                <img src="img/p3.png" alt="Company Profile">
+                <div class="card-body text-center">
+                    <h6>Web Galeri Seni</h6>
+
+                    <div class="tech-badge mb-2">
+                        <span class="badge bg-primary">PHP</span>
+                        <span class="badge bg-info">MySQL</span>
+                        <span class="badge bg-warning">Bootstrap</span>
+                    </div>
+
+                    <p>Website galeri seni untuk menampilkan dan mengelola karya seni secara online.</p>
+
+                    <button class="btn btn-primary btn-sm"
+                        data-bs-toggle="modal"
+                        data-bs-target="#project3">
+                        Lihat Detail
+                    </button>
+
+                    <div class="private-label mt-2">
+                        *Project lokal
+                    </div>
+                </div>
             </div>
         </div>
-        <!-- Portfolio Item 4 -->
-        <div class="col-md-4 mb-4">
-            <div class="portfolio-item">
-                <a href="#" data-bs-toggle="modal" data-bs-target="#portfolioModal4">
-                    <img src="img/p4.png" alt="Project 4" class="img-fluid rounded shadow">
-                </a>
+
+        <!-- PROJECT 4 -->
+        <div class="col-lg-4 col-md-6">
+            <div class="card project-card shadow-sm">
+                <img src="img/p4.png">
+                <div class="card-body text-center">
+                    <h6>Website laundry</h6>
+                    <div class="tech-badge mb-2">
+                        <span class="badge bg-danger">Laravel</span>
+                        <span class="badge bg-info">MySQL</span>
+                        <span class="badge bg-warning">Bootstrap</span>
+                    </div>
+                    <p>Website manajemen laundry untuk pengelolaan data pelanggan dan transaksi.</p>
+                    <button class="btn btn-primary btn-sm"
+                        data-bs-toggle="modal"
+                        data-bs-target="#project4">
+                        Lihat Detail
+                    </button>
+                    <div class="private-label mt-2">*Project latihan</div>
+                </div>
             </div>
         </div>
-        <!-- Portfolio Item 5 -->
-        <div class="col-md-4 mb-4">
-            <div class="portfolio-item">
-                <a href="#" data-bs-toggle="modal" data-bs-target="#portfolioModal5">
-                    <img src="img/p5.png" alt="Project 5" class="img-fluid rounded shadow">
-                </a>
+
+        <!-- PROJECT 5 -->
+        <div class="col-lg-4 col-md-6">
+            <div class="card project-card shadow-sm">
+                <img src="img/p5.png">
+                <div class="card-body text-center">
+                    <h6>Website broadcast</h6>
+                    <div class="tech-badge mb-2">
+                        <span class="badge bg-danger">Laravel</span>
+                        <span class="badge bg-info">MySQL</span>
+                        <span class="badge bg-warning">Bootstrap</span>
+                    </div>
+                    <p>Website promosi dan broadcast untuk membantu UMKM memasarkan produk dan jasanya.</p>
+                    <button class="btn btn-primary btn-sm"
+                        data-bs-toggle="modal"
+                        data-bs-target="#project5">
+                        Lihat Detail
+                    </button>
+                    <div class="private-label mt-2">*Tidak dihosting</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- PROJECT 6 -->
+        <div class="col-lg-4 col-md-6">
+            <div class="card project-card shadow-sm">
+                <img src="img/p6.png">
+                <div class="card-body text-center">
+                    <h6>Website Sewa Cosplay</h6>
+                    <div class="tech-badge mb-2">
+                        <span class="badge bg-primary">PHP</span>
+                        <span class="badge bg-info">MySQL</span>
+                        <span class="badge bg-warning">Bootstrap</span>
+                    </div>
+                    <p>Website penyewaan kostum cosplay dengan sistem pemesanan dan data produk.</p>
+                    <button class="btn btn-primary btn-sm"
+                        data-bs-toggle="modal"
+                        data-bs-target="#project6">
+                        Lihat Detail
+                    </button>
+                    <div class="private-label mt-2">*Project lokal</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- PROJECT 7 -->
+        <div class="col-lg-4 col-md-6">
+            <div class="card project-card shadow-sm">
+                <img src="img/p7.png">
+                <div class="card-body text-center">
+                    <h6>Website Sewa GOR</h6>
+                    <div class="tech-badge mb-2">
+                        <span class="badge bg-primary">PHP</span>
+                        <span class="badge bg-info">MySQL</span>
+                        <span class="badge bg-warning">Bootstrap</span>
+                    </div>
+                    <p>Website penyewaan GOR untuk olahraga badminton dan voli dengan sistem pengelolaan jadwal.</p>
+                    <button class="btn btn-primary btn-sm"
+                        data-bs-toggle="modal"
+                        data-bs-target="#project7">
+                        Lihat Detail
+                    </button>
+                    <div class="private-label mt-2">*Project lokal</div>
+                </div>
+            </div>
+        </div>
+<!--MODAL PROJEK-->
+<div class="modal fade" id="project1" tabindex="-1">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content">
+            <img src="img/p1.png" class="img-fluid">
+            <div class="modal-body">
+                <h5>Website Absensi Siswa PKL di BNNK Ciamis</h5>
+                <ul>
+                    <li>Bahasa: PHP</li>
+                    <li>Database: MySQL</li>
+                    <li>Framework CSS: Bootstrap</li>
+                    <li>Fitur: Absensi siswa, Login admin, Rekap data kehadiran</li>
+                    <li>Status: Belum dihosting</li>
+                </ul>
             </div>
         </div>
     </div>
 </div>
 
-<!-- Modal 1 -->
-<div class="modal fade" id="portfolioModal1" tabindex="-1" aria-labelledby="portfolioModalLabel1" aria-hidden="true">
-    <div class="modal-dialog modal-lg">
+<!-- PROJECT 2 -->
+<div class="modal fade" id="project2" tabindex="-1">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
         <div class="modal-content">
+            <img src="img/p2.png" class="img-fluid">
             <div class="modal-body">
-                <img src="img/p1.png" alt="Project 1" class="img-fluid">
+            <h5>Website Pelayanan BNNK Ciamis</h5>
+                <ul>
+                    <li>Bahasa: PHP</li>
+                    <li>Database: MySQL</li>
+                    <li>Framework CSS: Bootstrap</li>
+                    <li>Fitur: Manajemen layanan, Form pelayanan, Admin panel</li>
+                    <li>Status: Belum dihosting</li>
+                </ul>
+
             </div>
         </div>
     </div>
 </div>
 
-<!-- Modal 2 -->
-<div class="modal fade" id="portfolioModal2" tabindex="-1" aria-labelledby="portfolioModalLabel2" aria-hidden="true">
-    <div class="modal-dialog modal-lg">
+<!-- PROJECT 3 -->
+<div class="modal fade" id="project3" tabindex="-1">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
         <div class="modal-content">
+            <img src="img/p3.png" class="img-fluid">
             <div class="modal-body">
-                <img src="img/p3.png" alt="Project 2" class="img-fluid">
+               <h5>Website Galeri Seni</h5>
+                    <ul>
+                        <li>Bahasa: PHP</li>
+                        <li>Database: MySQL</li>
+                        <li>Framework CSS: Bootstrap</li>
+                        <li>Fitur: Manajemen karya seni, Galeri online, Halaman informasi</li>
+                        <li>Status: Project lokal</li>
+                    </ul>
             </div>
         </div>
     </div>
 </div>
 
-<!-- Modal 3 -->
-<div class="modal fade" id="portfolioModal3" tabindex="-1" aria-labelledby="portfolioModalLabel3" aria-hidden="true">
-    <div class="modal-dialog modal-lg">
+<!-- PROJECT 4 -->
+<div class="modal fade" id="project4" tabindex="-1">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
         <div class="modal-content">
+            <img src="img/p4.png" class="img-fluid">
             <div class="modal-body">
-                <img src="img/p2.png" alt="Project 3" class="img-fluid">
+                <h5>Website Manajemen Laundry</h5>
+                    <ul>
+                        <li>Framework: Laravel</li>
+                        <li>Database: MySQL</li>
+                        <li>Framework CSS: Bootstrap</li>
+                        <li>Fitur: Manajemen pelanggan, Transaksi, Laporan, CRUD data</li>
+                        <li>Status: Project latihan</li>
+                    </ul>
             </div>
         </div>
     </div>
 </div>
 
-<!-- Modal 4 -->
-<div class="modal fade" id="portfolioModal4" tabindex="-1" aria-labelledby="portfolioModalLabel4" aria-hidden="true">
-    <div class="modal-dialog modal-lg">
+<!-- PROJECT 5 -->
+<div class="modal fade" id="project5" tabindex="-1">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
         <div class="modal-content">
+            <img src="img/p5.png" class="img-fluid">
             <div class="modal-body">
-                <img src="img/p4.png" alt="Project 4" class="img-fluid">
+                <h5>Website Broadcast UMKM</h5>
+                    <ul>
+                        <li>Framework: Laravel</li>
+                        <li>Database: MySQL</li>
+                        <li>Framework CSS: Bootstrap</li>
+                        <li>Fitur: Manajemen konten, Promosi usaha, Informasi produk</li>
+                        <li>Status: Tidak dihosting</li>
+                    </ul>
+
             </div>
         </div>
     </div>
 </div>
-<!-- Modal 5 -->
-<div class="modal fade" id="portfolioModal5" tabindex="-1" aria-labelledby="portfolioModalLabel5" aria-hidden="true">
-    <div class="modal-dialog modal-lg">
+
+<!-- PROJECT 6 -->
+<div class="modal fade" id="project6" tabindex="-1">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
         <div class="modal-content">
+            <img src="img/p6.png" class="img-fluid">
             <div class="modal-body">
-                <img src="img/p5.png" alt="Project 5" class="img-fluid">
+            <h5>Website Sewa Cosplay</h5>
+                <ul>
+                    <li>Bahasa: PHP</li>
+                    <li>Database: MySQL</li>
+                    <li>Framework CSS: Bootstrap</li>
+                    <li>Fitur: Manajemen produk, Sistem pemesanan, Data penyewaan</li>
+                    <li>Status: Project lokal</li>
+                </ul>
             </div>
         </div>
     </div>
 </div>
+
+<!-- PROJECT 7 -->
+<div class="modal fade" id="project7" tabindex="-1">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content">
+            <img src="img/p7.png" class="img-fluid">
+            <div class="modal-body">
+            <h5>Website Sewa GOR</h5>
+                <ul>
+                    <li>Bahasa: PHP</li>
+                    <li>Database: MySQL</li>
+                    <li>Framework CSS: Bootstrap</li>
+                    <li>Fitur: Manajemen jadwal, Penyewaan GOR, Data pemesanan</li>
+                    <li>Status: Project lokal</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+    </div>
+</section>
+<!-- TALENT / TIKTOK SHOWCASE -->
+<div class="container my-5" id="Talent">
+    <h2 class="text-center mb-3">Talent & Video Showcase</h2>
+    <p class="text-center mb-4">
+        Beberapa karya video yang saya buat dan tampilkan sebagai <strong>Talent</strong>.
+    </p>
+
+    <div class="row justify-content-center">
+
+        <!-- Video 1 -->
+        <div class="col-md-4 mb-4">
+            <blockquote class="tiktok-embed"
+                cite="https://www.tiktok.com/video/7581088363814620424"
+                data-video-id="7581088363814620424"
+                style="max-width:100%; min-width:325px;">
+                <section></section>
+            </blockquote>
+        </div>
+
+        <!-- Video 2 -->
+        <div class="col-md-4 mb-4">
+            <blockquote class="tiktok-embed"
+                cite="https://www.tiktok.com/video/7585174444549737746"
+                data-video-id="7585174444549737746"
+                style="max-width:100%; min-width:325px;">
+                <section></section>
+            </blockquote>
+        </div>
+
+        <!-- Video 3 -->
+        <div class="col-md-4 mb-4">
+            <blockquote class="tiktok-embed"
+                cite="https://www.tiktok.com/video/7593336408622812423"
+                data-video-id="7593336408622812423"
+                style="max-width:100%; min-width:325px;">
+                <section></section>
+            </blockquote>
+        </div>
+
+    </div>
+</div>
+
+
 <div class="container  my-5" id="Keahlian">
     <h2 class="text-center">Keahlian</h2>
     <div class="row mt-4">
@@ -662,9 +970,6 @@ h2 {
                     <a href="https://www.instagram.com/rasyiqzidan17" target="_blank" class="contact-icon">
                         <i class="fab fa-instagram"></i>
                     </a>
-                    <a href="https://www.facebook.com/zidan0102" target="_blank" class="contact-icon">
-                        <i class="fab fa-facebook-f"></i>
-                    </a>
                 </div>
             </div>
         </div>
@@ -714,6 +1019,15 @@ h2 {
     // Jalankan sekali saat halaman dimuat
     animateProgressBars();
 </script>
+<script>
+window.addEventListener("scroll", () => {
+    const nav = document.querySelector(".navbar");
+    nav.classList.toggle("scrolled", window.scrollY > 50);
+});
+</script>
+
+<script async src="https://www.tiktok.com/embed.js"></script>
+
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
