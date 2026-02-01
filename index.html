@@ -213,6 +213,50 @@
             display: block;
             text-align: center;
         }
+/* === VIDEO TIKTOK RATIO 9:16 === */
+.video-wrapper {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 9 / 16;
+    background: #000;
+    border-radius: 10px 10px 0 0;
+    overflow: hidden;
+}
+
+.video-wrapper video {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* CARD VIDEO */
+.video-card {
+    border-radius: 12px;
+    overflow: hidden;
+}
+.modal video {
+    width: 100%;
+    height: auto;
+    max-height: 80vh;
+    object-fit: contain;
+    background: #000;
+}
+
+.social-btn {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.social-btn .btn {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+
 .footer-section {
     background: #333;
     color: #fff;
@@ -278,27 +322,83 @@
                 font-size: 2.5rem;
             }
         }
-#Keahlian h4 {
-        margin-bottom: 15px;
-    }
+/* ================= KEAHLIAN ================= */
+#Keahlian {
+    padding: 60px 20px;
+}
 
-    #Keahlian p {
-        margin-bottom: 10px;
-        font-size: 1rem;
-        color: #333;
-    }
+#Keahlian h2 {
+    font-weight: 800;
+    margin-bottom: 40px;
+    position: relative;
+}
 
-    #Keahlian img {
-        display: block;
-        margin: 0 auto 5px;
-    }
+#Keahlian h2::after {
+    content: "";
+    width: 70px;
+    height: 4px;
+    background: #00b8e6;
+    display: block;
+    margin: 10px auto 0;
+    border-radius: 10px;
+}
 
-    hr {
-        border: 1px solid #ccc;
-        margin: 20px 0;
-    }
-h2 {
-    font-weight: bold;
+/* Card wrapper */
+.skill-card {
+    background: #fff;
+    border-radius: 16px;
+    padding: 25px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+    height: 100%;
+}
+
+/* Soft & Hard Skills badge */
+.skill-badge {
+    font-size: 14px;
+    padding: 10px 16px;
+    border-radius: 20px;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    transition: all 0.3s ease;
+}
+
+.skill-badge i {
+    font-size: 14px;
+}
+
+.skill-badge:hover {
+    transform: translateY(-4px);
+    opacity: 0.9;
+}
+
+/* Software Skills */
+.software-item {
+    text-align: center;
+    padding: 15px;
+    border-radius: 12px;
+    transition: all 0.3s ease;
+}
+
+.software-item img {
+    max-height: 70px;
+    margin-bottom: 10px;
+    transition: transform 0.3s ease;
+}
+
+.software-item p {
+    font-size: 14px;
+    font-weight: 600;
+    margin: 0;
+}
+
+.software-item:hover {
+    background: #f8f9fa;
+    transform: translateY(-6px);
+}
+
+.software-item:hover img {
+    transform: scale(1.1);
 }
 
 .experience-section {
@@ -337,15 +437,76 @@ h2 {
 .toggle-btn.open {
     transform: rotate(180deg);
 }
-
-.experience-content {
-    display: none;
-    margin-top: 10px;
+.education-card,
+.organization-card {
+    background: #fff;
+    border-radius: 16px;
+    padding: 25px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+    height: 100%;
 }
 
-.experience-content ul {
-    padding-left: 20px;
-    list-style: none;
+.edu-title {
+    font-weight: 700;
+    margin-bottom: 6px;
+}
+
+.edu-school {
+    font-size: 14px;
+    color: #6c757d;
+    margin-bottom: 10px;
+}
+
+.edu-desc {
+    font-size: 14px;
+}
+
+/* ================= PENGALAMAN ================= */
+#pengalaman {
+    padding: 60px 20px;
+}
+
+.experience-card {
+    background: #fff;
+    border-radius: 16px;
+    padding: 25px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+    position: relative;
+    transition: all 0.3s ease;
+    height: 100%;
+}
+
+.experience-card:hover {
+    transform: translateY(-6px);
+}
+
+.experience-badge {
+    font-size: 12px;
+    padding: 6px 14px;
+    border-radius: 20px;
+    display: inline-block;
+    margin-bottom: 10px;
+}
+
+.exp-title {
+    font-weight: 700;
+    margin-bottom: 4px;
+}
+
+.exp-company {
+    font-size: 14px;
+    color: #6c757d;
+    margin-bottom: 12px;
+}
+
+.exp-list {
+    padding-left: 18px;
+    margin: 0;
+}
+
+.exp-list li {
+    font-size: 14px;
+    margin-bottom: 6px;
 }
 .about-section {
     background: #fff;
@@ -396,6 +557,39 @@ h2 {
     background-color: #e09c00;
     transform: scale(1.05);
 }
+/* === SCROLL ANIMATION === */
+.animate {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: all 0.8s ease;
+}
+
+.animate.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Variasi animasi */
+.animate-left {
+    transform: translateX(-50px);
+}
+
+.animate-right {
+    transform: translateX(50px);
+}
+
+.animate-zoom {
+    transform: scale(0.9);
+}
+
+.animate.show.animate-left,
+.animate.show.animate-right {
+    transform: translateX(0);
+}
+
+.animate.show.animate-zoom {
+    transform: scale(1);
+}
 
     </style>
 </head>
@@ -422,7 +616,7 @@ h2 {
     </nav>
     
 <!-- About Section -->
-<div class="about-section container my-5 card-custom" id="About">
+<div class="about-section container my-5 animate animate-zoom">
     <div class="row align-items-center">
         <!-- Foto Profil -->
         <div class="col-md-5 text-center mb-4 mb-md-0">
@@ -433,12 +627,12 @@ h2 {
         <!-- Informasi -->
         <div class="col-md-7">
             <h2 class="name">Zaidan Rasyiq Fayyadh Abdullah</h2>
-            <h4 class="role">Web Developer & Admin</h4>
+            <h4 class="role">Web Developer | Admin | Talent</h4>
             <p class="description">
-                Saya adalah seorang <strong>fresh graduate</strong> yang memiliki dedikasi tinggi dalam bidang administrasi dan pengembangan web. Dengan semangat belajar yang kuat, saya fokus pada pengembangan situs web yang responsif dan memenuhi kebutuhan pengguna.
+                <strong>Fresh graduate</strong> dengan ketertarikan pada pengembangan web dan dunia digital kreatif. Berpengalaman dalam membangun website berbasis PHP dan Laravel, serta pernah terlibat sebagai talent konten untuk kebutuhan promosi digital.
             </p>
             <p class="description">
-                Saya dikenal sebagai pribadi yang detail-oriented, kreatif, dan memiliki kemampuan komunikasi yang baik. Saya terus berkomitmen untuk mengikuti perkembangan teknologi terbaru untuk memberikan hasil terbaik.
+                Saya memiliki karakter detail-oriented, kreatif, dan komunikatif, serta selalu terbuka untuk belajar dan beradaptasi dengan teknologi baru.
             </p>
             <a href="CV-Zaidan.pdf" class="btn btn-download" download> <i class="fas fa-download me-2"></i>Download CV</a>
         </div>
@@ -448,65 +642,135 @@ h2 {
 
 <!-- Bagian Pengalaman -->
 <div class="container  my-5" id="Pengalaman">
-    <h2 class="text-center mb-4">Pengalaman</h2>
+<section class="container my-5" id="pendidikan">
+    <h2 class="text-center fw-bold mb-5">Pendidikan</h2>
 
-    <!-- Pendidikan -->
-    <div class="experience-section">
-        <div class="experience-header bg-light p-3 rounded d-flex align-items-center justify-content-between">
-            <div>
-                <i class="fas fa-graduation-cap me-2 text-primary"></i>
-                <span class="fw-bold">Pendidikan</span>
+    <div class="row justify-content-center">
+        <div class="col-lg-8">
+            <div class="education-card">
+                <span class="experience-badge bg-success text-white mb-3">
+                    Pendidikan Formal
+                </span>
+
+                <h5 class="edu-title">
+                    SMK – Rekayasa Perangkat Lunak (RPL)
+                </h5>
+
+                <div class="edu-school">
+                    SMK [Nama Sekolah] · [Tahun Masuk – Tahun Lulus]
+                </div>
+
+                <p class="edu-desc">
+                    Mempelajari dasar pemrograman, pengembangan aplikasi berbasis web,
+                    pengelolaan basis data, serta logika dan pemecahan masalah dalam
+                    pengembangan sistem.
+                </p>
             </div>
-            <button class="toggle-btn btn btn-outline-primary">
-                <i class="fas fa-chevron-down"></i>
-            </button>
-        </div>
-        <div class="experience-content px-3 mt-2" style="display: none;">
-            <ul class="list-unstyled">
-                <li><strong>SMK Negeri 1 Ciamis</strong> (2021 - 2024)</li>
-                <li><strong>SMP Negeri 2 Ciamis</strong> (2018 - 2021)</li>
-            </ul>
         </div>
     </div>
+</section>
 
     <!-- Pekerjaan -->
-    <div class="experience-section mt-3">
-        <div class="experience-header bg-light p-3 rounded d-flex align-items-center justify-content-between">
-            <div>
-                <i class="fas fa-briefcase me-2 text-success"></i>
-                <span class="fw-bold">Pekerjaan</span>
-            </div>
-            <button class="toggle-btn btn btn-outline-success">
-                <i class="fas fa-chevron-down"></i>
-            </button>
-        </div>
-        <div class="experience-content px-3 mt-2" style="display: none;">
-            <ul class="list-unstyled">
-                <li><strong>PKL di BNNK Ciamis</strong> ( 2 Oktober 2023 - 31 Maret 2024)</li>
-                <li><strong>Freelancer</strong> ( 2024 - Sekarang)</li>                
-            </ul>
-        </div>
-    </div>
+ <section class="container my-5" id="pengalaman">
+    <h2 class="text-center fw-bold mb-5">Pengalaman</h2>
 
-    <!-- Organisasi -->
-    <div class="experience-section mt-3">
-        <div class="experience-header bg-light p-3 rounded d-flex align-items-center justify-content-between">
-            <div>
-                <i class="fas fa-users me-2 text-warning"></i>
-                <span class="fw-bold">Organisasi</span>
+    <div class="row g-4">
+
+        <!-- PENGALAMAN IT & ADMIN -->
+        <div class="col-lg-6">
+            <div class="experience-card animate animate-left">
+                <span class="experience-badge bg-primary text-white">
+                    IT & Administrasi
+                </span>
+
+                <h5 class="exp-title">Web & Administrasi</h5>
+                <div class="exp-company">Instansi / Project PKL</div>
+
+                <ul class="exp-list">
+                    <li>Mengelola dan mengembangkan website berbasis PHP & MySQL</li>
+                    <li>Membantu administrasi data dan pengelolaan database</li>
+                    <li>Menyusun laporan kerja dan laporan sederhana menggunakan Microsoft Excel & Word</li>
+                    <li>Mendukung operasional administrasi berbasis teknologi</li>
+                </ul>
             </div>
-            <button class="toggle-btn btn btn-outline-warning">
-                <i class="fas fa-chevron-down"></i>
-            </button>
         </div>
-        <div class="experience-content px-3 mt-2" style="display: none;">
-            <ul class="list-unstyled">
-                <li><strong>Anggota Klub IRMA</strong> di SMK Negeri 1 Ciamis (2021 - 2023)</li> 
-                <li><strong>Anggota Klub Japanese Club</strong> di SMK Negeri 1 Ciamis (2021 - 2023)</li>
-                <li><strong>Anggota MPK</strong> di SMP Negeri 2 Ciamis (2018 - 2020)</li>
-            </ul>
+
+        <!-- PENGALAMAN TALENT -->
+        <div class="col-lg-6">
+            <div class="experience-card animate animate-right">
+                <span class="experience-badge bg-danger text-white">
+                    Content Talent
+                </span>
+
+                <h5 class="exp-title">Talent Konten Digital</h5>
+                <div class="exp-company">Brand MKB99</div>
+
+                <ul class="exp-list">
+                    <li>Menjadi talent konten promosi untuk platform TikTok & Instagram</li>
+                    <li>Menyampaikan pesan promosi sesuai brief dan target audiens</li>
+                    <li>Berkolaborasi dengan tim kreatif dalam produksi konten digital</li>
+                    <li>Memahami dasar komunikasi visual dan personal branding</li>
+                </ul>
+            </div>
         </div>
-    </div> 
+
+    </div>
+</section>
+
+  <section class="container my-5" id="organisasi">
+    <h2 class="text-center fw-bold mb-5">Organisasi</h2>
+
+    <div class="row g-4 justify-content-center">
+
+        <!-- ORGANISASI 1 -->
+        <div class="col-lg-6">
+            <div class="organization-card">
+                <span class="experience-badge bg-warning text-dark mb-3">
+                    Organisasi Sekolah
+                </span>
+
+                <h5 class="edu-title">
+                    Anggota IRMA (Ikatan Remaja Masjid)
+                </h5>
+
+                <div class="edu-school">
+                    SMK Negeri 1 Ciamis · 2021 – 2023
+                </div>
+
+                <ul class="exp-list">
+                    <li>Berpartisipasi aktif dalam kegiatan keagamaan sekolah</li>
+                    <li>Membantu pelaksanaan acara rohani dan sosial</li>
+                    <li>Melatih tanggung jawab, disiplin, dan kerja sama tim</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- ORGANISASI 2 -->
+        <div class="col-lg-6">
+            <div class="organization-card">
+                <span class="experience-badge bg-warning text-dark mb-3">
+                    Organisasi Sekolah
+                </span>
+
+                <h5 class="edu-title">
+                    Anggota Japanese Club
+                </h5>
+
+                <div class="edu-school">
+                    SMK Negeri 1 Ciamis · 2021 – 2023
+                </div>
+
+                <ul class="exp-list">
+                    <li>Mengikuti kegiatan pengenalan budaya dan bahasa Jepang</li>
+                    <li>Berpartisipasi dalam event dan kegiatan ekstrakurikuler</li>
+                    <li>Meningkatkan kepercayaan diri dan komunikasi</li>
+                </ul>
+            </div>
+        </div>
+
+    </div>
+</section>
+
 </div>
     
 <section class="container my-5" id="Portfolio">
@@ -516,7 +780,7 @@ h2 {
 
         <!-- PROJECT 1 -->
         <div class="col-lg-4 col-md-6">
-            <div class="card project-card shadow-sm">
+            <div class="card project-card shadow-sm animate">
                 <img src="img/p1.png" alt="Website CRUD">
                 <div class="card-body text-center">
                     <h6>Web Absensi Siswa PKL di BNNK Ciamis</h6>
@@ -544,7 +808,7 @@ h2 {
 
         <!-- PROJECT 2 -->
         <div class="col-lg-4 col-md-6">
-            <div class="card project-card shadow-sm">
+            <div class="card project-card shadow-sm animate">
                 <img src="img/p2.png" alt="Admin Dashboard">
                 <div class="card-body text-center">
                     <h6>Web Pelayanan di BNNK Ciamis</h6>
@@ -572,7 +836,7 @@ h2 {
 
         <!-- PROJECT 3 -->
         <div class="col-lg-4 col-md-6">
-            <div class="card project-card shadow-sm">
+            <div class="card project-card shadow-sm animate">
                 <img src="img/p3.png" alt="Company Profile">
                 <div class="card-body text-center">
                     <h6>Web Galeri Seni</h6>
@@ -823,128 +1087,226 @@ h2 {
     </div>
 </section>
 <!-- TALENT / TIKTOK SHOWCASE -->
-<div class="container my-5" id="Talent">
-    <h2 class="text-center mb-3">Talent & Video Showcase</h2>
-    <p class="text-center mb-4">
-        Beberapa karya video yang saya buat dan tampilkan sebagai <strong>Talent</strong>.
+<section class="container my-5" id="talent">
+    <h2 class="section-title text-center">Talent & Video Showcase</h2>
+    <p class="text-center text-muted mb-4">
+        Video berikut merupakan project pribadi serta pengalaman saya sebagai talent konten.<br>
+Saya pernah berkolaborasi sebagai talent TikTok untuk brand MKB99.
     </p>
 
-    <div class="row justify-content-center">
+    <div class="row g-4">
 
-        <!-- Video 1 -->
-        <div class="col-md-4 mb-4">
-            <blockquote class="tiktok-embed"
-                cite="https://www.tiktok.com/video/7581088363814620424"
-                data-video-id="7581088363814620424"
-                style="max-width:100%; min-width:325px;">
-                <section></section>
-            </blockquote>
+        <!-- VIDEO 1 -->
+        <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12">
+            <div class="card video-card shadow-sm animate animate-zoom">
+
+                <div class="video-wrapper">
+                    <video controls muted preload="metadata">
+                        <source src="video/talent1.mp4" type="video/mp4">
+                    </video>
+                </div>
+
+                <div class="card-body text-center">
+                    <h6>Talent Video – Content Creator</h6>
+
+                    <div class="social-btn">
+                        <a href="https://www.tiktok.com/@mkb99.id/video/7593336408622812423"
+                        target="_blank"
+                        class="btn btn-dark btn-sm">
+                            <i class="fab fa-tiktok"></i> TikTok
+                        </a>
+                    </div>
+                </div>
+
+            </div>
         </div>
 
-        <!-- Video 2 -->
-        <div class="col-md-4 mb-4">
-            <blockquote class="tiktok-embed"
-                cite="https://www.tiktok.com/video/7585174444549737746"
-                data-video-id="7585174444549737746"
-                style="max-width:100%; min-width:325px;">
-                <section></section>
-            </blockquote>
-        </div>
+        <!-- VIDEO 2 -->
+        <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12">
+            <div class="card video-card shadow-sm animate animate-zoom">
+                <div class="video-wrapper">
+                    <video controls muted preload="metadata">
+                        <source src="video/talent2.mp4" type="video/mp4">
+                    </video>
+                </div>
 
-        <!-- Video 3 -->
-        <div class="col-md-4 mb-4">
-            <blockquote class="tiktok-embed"
-                cite="https://www.tiktok.com/video/7593336408622812423"
-                data-video-id="7593336408622812423"
-                style="max-width:100%; min-width:325px;">
-                <section></section>
-            </blockquote>
-        </div>
+                <div class="card-body text-center">
+                    <h6>Talent Video – Content Creator</h6>
 
+                    <div class="social-btn">
+                        <a href="https://www.tiktok.com/@mkb99.id/video/7588140960400395527"
+                        target="_blank"
+                        class="btn btn-dark btn-sm">
+                            <i class="fab fa-tiktok"></i> TikTok
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+               <!-- VIDEO 3 -->
+        <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12">
+            <div class="card video-card shadow-sm animate animate-zoom">
+
+                <div class="video-wrapper">
+                    <video controls muted preload="metadata">
+                        <source src="video/talent3.mp4" type="video/mp4">
+                    </video>
+                </div>
+
+                <div class="card-body text-center">
+                    <h6>Talent Video – Content Creator</h6>
+
+                    <div class="social-btn">
+                        <a href="https://www.tiktok.com/@mkb99.id/video/7587768895814061330"
+                        target="_blank"
+                        class="btn btn-dark btn-sm">
+                            <i class="fab fa-tiktok"></i> TikTok
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+       <!-- VIDEO 4 -->
+        <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12">
+            <div class="card video-card shadow-sm animate animate-zoom">
+
+                <div class="video-wrapper">
+                    <video controls muted preload="metadata">
+                        <source src="video/talent4.mp4" type="video/mp4">
+                    </video>
+                </div>
+
+                <div class="card-body text-center">
+                    <h6>Talent Video – Content Creator</h6>
+
+                    <div class="social-btn">
+                        <a href="https://www.tiktok.com/@mkb99.id/video/7581088363814620424"
+                        target="_blank"
+                        class="btn btn-dark btn-sm">
+                            <i class="fab fa-tiktok"></i> TikTok
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
     </div>
-</div>
+</section>
 
-
-<div class="container  my-5" id="Keahlian">
+<div class="container my-5" id="Keahlian">
     <h2 class="text-center">Keahlian</h2>
-    <div class="row mt-4">
+
+    <div class="row g-4">
+
         <!-- Soft Skills -->
-        <div class="col-12">
-            <h4 class="fw-bold mb-3">Soft Skills</h4>
-            <div class="d-flex flex-wrap gap-2">
-                <span class="badge bg-primary text-white p-3 rounded">✔ Kerja sama Tim</span>
-                <span class="badge bg-primary text-white p-3 rounded">✔ Manajemen Waktu</span>
-                <span class="badge bg-primary text-white p-3 rounded">✔ Pemecahan Masalah</span>
+        <div class="col-lg-6">
+            <div class="skill-card">
+                <h4 class="fw-bold mb-3">
+                    <i class="fas fa-users text-primary me-2"></i> Soft Skills
+                </h4>
+                <div class="d-flex flex-wrap gap-2">
+                    <span class="skill-badge bg-primary text-white">
+                        <i class="fas fa-check"></i> Kerja Sama Tim
+                    </span>
+                    <span class="skill-badge bg-primary text-white">
+                        <i class="fas fa-clock"></i> Manajemen Waktu
+                    </span>
+                    <span class="skill-badge bg-primary text-white">
+                        <i class="fas fa-lightbulb"></i> Pemecahan Masalah
+                    </span>
+                    <span class="skill-badge bg-primary text-white">
+                        <i class="fas fa-comments"></i> Komunikasi
+                    </span>
+                </div>
             </div>
         </div>
-        <hr>
+
         <!-- Hard Skills -->
-        <div class="col-12 mt-4">
-            <h4 class="fw-bold mb-3">Hard Skills</h4>
-            <div class="d-flex flex-wrap gap-2">
-                <span class="badge bg-success text-white p-3 rounded">✔ Microsoft Office</span>
-                <span class="badge bg-success text-white p-3 rounded">✔ Pengembangan Web</span>
-                <span class="badge bg-success text-white p-3 rounded">✔ Video Editing</span>
+        <div class="col-lg-6">
+            <div class="skill-card">
+                <h4 class="fw-bold mb-3">
+                    <i class="fas fa-tools text-success me-2"></i> Hard Skills
+                </h4>
+                <div class="d-flex flex-wrap gap-2">
+                    <span class="skill-badge bg-success text-white">
+                        <i class="fas fa-file-excel"></i> Microsoft Office
+                    </span>
+                    <span class="skill-badge bg-success text-white">
+                        <i class="fas fa-code"></i> Web Development
+                    </span>
+                    <span class="skill-badge bg-success text-white">
+                        <i class="fas fa-video"></i> Video Editing
+                    </span>
+                </div>
             </div>
         </div>
-        <hr>
+
         <!-- Software Skills -->
-        <div class="col-12 mt-4">
-            <h4 class="fw-bold mb-3">Software Skills</h4>
-            <div class="row g-4">
-                <div class="col-6 col-md-3 text-center">
-                    <img src="img/html.png" alt="HTML" class="img-fluid" style="max-width: 80px;">
-                    <p>HTML</p>
-                </div>
-                <div class="col-6 col-md-3 text-center">
-                    <img src="img/css.png" alt="CSS" class="img-fluid" style="max-width: 55px;">
-                    <p>CSS</p>
-                </div>
-                <div class="col-6 col-md-3 text-center">
-                    <img src="img/js.png" alt="JavaScript" class="img-fluid" style="max-width: 70px;">
-                    <p>JavaScript</p>
-                </div>
-                <div class="col-6 col-md-3 text-center">
-                    <img src="img/php.png" alt="PHP" class="img-fluid" style="max-width: 95px;">
-                    <p>PHP</p>
-                </div>
-                <div class="col-6 col-md-3 text-center">
-                    <img src="img/laravel.png" alt="Laravel" class="img-fluid" style="max-width: 100px;">
-                    <p>Laravel</p>
-                </div>
-                <div class="col-6 col-md-3 text-center">
-                    <img src="img/word.png" alt="Word" class="img-fluid" style="max-width: 95px;">
-                    <p>Microsoft Word</p>
-                </div>
-                <div class="col-6 col-md-3 text-center">
-                    <img src="img/excel.png" alt="Excel" class="img-fluid" style="max-width: 95px;">
-                    <p>Microsoft Excel</p>
-                </div>
-                <div class="col-6 col-md-3 text-center">
-                    <img src="img/ppt.png" alt="PPT" class="img-fluid" style="max-width: 95px;">
-                    <p>Microsoft Power Point</p>
-                </div>
-                <div class="col-6 col-md-3 text-center">
-                    <img src="img/figma.png" alt="Figma" class="img-fluid" style="max-width: 45px;">
-                    <p>Figma</p>
-                </div>
-                <div class="col-6 col-md-3 text-center">
-                    <img src="img/ai.png" alt="Adobe Illustrator" class="img-fluid" style="max-width: 70px;">
-                    <p>Illustrator</p>
-                </div>
-                <div class="col-6 col-md-3 text-center">
-                    <img src="img/canva.png" alt="Canva" class="img-fluid" style="max-width: 70px;">
-                    <p>Canva</p>
-                </div>
-                <div class="col-6 col-md-3 text-center">
-                    <img src="img/capcut.png" alt="Capcut" class="img-fluid" style="max-width: 80px;">
-                    <p>Capcut</p>
+        <div class="col-12">
+            <div class="skill-card">
+                <h4 class="fw-bold mb-4">
+                    <i class="fas fa-laptop-code text-warning me-2"></i> Software & Tools
+                </h4>
+
+                <div class="row g-3">
+                    <div class="col-6 col-md-3">
+                        <div class="software-item">
+                            <img src="img/html.png">
+                            <p>HTML</p>
+                        </div>
+                    </div>
+                    <div class="col-6 col-md-3">
+                        <div class="software-item">
+                            <img src="img/css.png">
+                            <p>CSS</p>
+                        </div>
+                    </div>
+                    <div class="col-6 col-md-3">
+                        <div class="software-item">
+                            <img src="img/js.png">
+                            <p>JavaScript</p>
+                        </div>
+                    </div>
+                    <div class="col-6 col-md-3">
+                        <div class="software-item">
+                            <img src="img/php.png">
+                            <p>PHP</p>
+                        </div>
+                    </div>
+                    <div class="col-6 col-md-3">
+                        <div class="software-item">
+                            <img src="img/laravel.png">
+                            <p>Laravel</p>
+                        </div>
+                    </div>
+                    <div class="col-6 col-md-3">
+                        <div class="software-item">
+                            <img src="img/figma.png">
+                            <p>Figma</p>
+                        </div>
+                    </div>
+                    <div class="col-6 col-md-3">
+                        <div class="software-item">
+                            <img src="img/canva.png">
+                            <p>Canva</p>
+                        </div>
+                    </div>
+                    <div class="col-6 col-md-3">
+                        <div class="software-item">
+                            <img src="img/capcut.png">
+                            <p>CapCut</p>
+                        </div>
+                    </div>
                 </div>
 
             </div>
         </div>
+
     </div>
 </div>
+
 
   <!-- Footer -->
 <footer class="footer-section">
@@ -1024,6 +1386,21 @@ window.addEventListener("scroll", () => {
     const nav = document.querySelector(".navbar");
     nav.classList.toggle("scrolled", window.scrollY > 50);
 });
+</script>
+<script>
+const animatedElements = document.querySelectorAll('.animate');
+
+const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('show');
+        }
+    });
+}, {
+    threshold: 0.2
+});
+
+animatedElements.forEach(el => observer.observe(el));
 </script>
 
 <script async src="https://www.tiktok.com/embed.js"></script>
