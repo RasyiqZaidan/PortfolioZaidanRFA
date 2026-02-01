@@ -119,6 +119,24 @@
             max-width: 400px;
             margin: auto;
         }
+        /* === GLOBAL SECTION TITLE === */
+.section-title {
+    font-weight: 800;
+    text-align: center;
+    margin-bottom: 40px;
+    position: relative;
+}
+
+.section-title::after {
+    content: "";
+    width: 70px;
+    height: 4px;
+    background: #00b8e6;
+    display: block;
+    margin: 10px auto 0;
+    border-radius: 10px;
+}
+
 /* ===================== PROJECT / PORTFOLIO ===================== */
 #Portfolio {
     padding: 60px 0;
@@ -577,6 +595,9 @@
 .animate-right {
     transform: translateX(50px);
 }
+.animate-up {
+    transform: translateY(50px);
+}
 
 .animate-zoom {
     transform: scale(0.9);
@@ -589,6 +610,142 @@
 
 .animate.show.animate-zoom {
     transform: scale(1);
+}
+/* ===================== RESPONSIVE GLOBAL ===================== */
+
+/* Laptop kecil & Tablet landscape */
+@media (max-width: 1200px) {
+    .hero-section h1 {
+        font-size: 2.5rem;
+    }
+}
+
+/* Tablet */
+@media (max-width: 992px) {
+
+    /* About section */
+    .profile-image img {
+        width: 240px;
+        height: 240px;
+    }
+
+    .about-section {
+        padding: 30px;
+    }
+
+    /* Project image */
+    .project-card img {
+        height: 180px;
+    }
+}
+
+/* Tablet kecil & HP landscape */
+@media (max-width: 768px) {
+
+    body {
+        padding-top: 70px;
+    }
+
+    /* Navbar */
+    .navbar-brand span {
+        font-size: 1rem;
+    }
+
+    /* About */
+    .name {
+        font-size: 24px;
+        text-align: center;
+    }
+
+    .role {
+        text-align: center;
+        font-size: 18px;
+    }
+
+    .description {
+        text-align: center;
+        font-size: 15px;
+    }
+
+    .btn-download {
+        display: block;
+        margin: auto;
+    }
+
+    /* Section spacing */
+    section {
+        padding: 40px 15px !important;
+    }
+
+    /* Project card */
+    .project-card img {
+        height: 160px;
+    }
+
+    /* Experience card */
+    .experience-card {
+        padding: 20px;
+    }
+}
+
+/* ===================== MOBILE FIX TOTAL ===================== */
+@media (max-width: 576px) {
+
+    body {
+        overflow-x: hidden;
+    }
+
+    .container,
+    .row,
+    [class*="col-"] {
+        max-width: 100% !important;
+        padding-left: 12px !important;
+        padding-right: 12px !important;
+        margin: 0 auto;
+    }
+
+    /* CARD */
+    .experience-card,
+    .education-card,
+    .organization-card {
+        width: 100%;
+        padding: 20px;
+    }
+
+    /* BADGE */
+    .experience-badge {
+        display: inline-block;
+        max-width: 100%;
+        white-space: normal;
+        font-size: 12px;
+    }
+
+    /* TITLE */
+    .experience-card h4,
+    .experience-card h5 {
+        font-size: 18px;
+        line-height: 1.4;
+        word-break: break-word;
+    }
+
+    /* LIST FIX (INI BIANG KEROK) */
+    .experience-card ul {
+        padding-left: 18px;
+        margin-bottom: 0;
+    }
+
+    .experience-card ul li {
+        font-size: 14px;
+        line-height: 1.6;
+        word-break: break-word;
+    }
+
+    /* MATIKAN SEMUA TRANSLATE */
+    .animate,
+    .animate-left,
+    .animate-right {
+        transform: none !important;
+    }
 }
 
     </style>
@@ -643,11 +800,11 @@
 <!-- Bagian Pengalaman -->
 <div class="container  my-5" id="Pengalaman">
 <section class="container my-5" id="pendidikan">
-    <h2 class="text-center fw-bold mb-5">Pendidikan</h2>
+    <h2 class="section-title">Pendidikan</h2>
 
     <div class="row justify-content-center">
         <div class="col-lg-8">
-            <div class="education-card">
+            <div class="experience-card animate animate-up">
                 <span class="experience-badge bg-success text-white mb-3">
                     Pendidikan Formal
                 </span>
@@ -657,7 +814,7 @@
                 </h5>
 
                 <div class="edu-school">
-                    SMK [Nama Sekolah] · [Tahun Masuk – Tahun Lulus]
+                    SMKN 1 Ciamis · 2021 – 2024
                 </div>
 
                 <p class="edu-desc">
@@ -672,7 +829,7 @@
 
     <!-- Pekerjaan -->
  <section class="container my-5" id="pengalaman">
-    <h2 class="text-center fw-bold mb-5">Pengalaman</h2>
+    <h2 class="section-title">Pengalaman</h2>
 
     <div class="row g-4">
 
@@ -718,13 +875,13 @@
 </section>
 
   <section class="container my-5" id="organisasi">
-    <h2 class="text-center fw-bold mb-5">Organisasi</h2>
+    <h2 class="section-title">Organisasi</h2>
 
     <div class="row g-4 justify-content-center">
 
         <!-- ORGANISASI 1 -->
         <div class="col-lg-6">
-            <div class="organization-card">
+            <div class="experience-card animate animate-left">
                 <span class="experience-badge bg-warning text-dark mb-3">
                     Organisasi Sekolah
                 </span>
@@ -747,7 +904,7 @@
 
         <!-- ORGANISASI 2 -->
         <div class="col-lg-6">
-            <div class="organization-card">
+            <div class="experience-card animate animate-right">
                 <span class="experience-badge bg-warning text-dark mb-3">
                     Organisasi Sekolah
                 </span>
