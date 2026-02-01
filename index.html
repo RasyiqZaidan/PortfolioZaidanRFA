@@ -688,63 +688,171 @@
     }
 }
 
-/* ===================== MOBILE FIX TOTAL ===================== */
+/* =========================================================
+   MOBILE ONLY (HP)
+   ========================================================= */
 @media (max-width: 576px) {
 
-    body {
+    /* ---------- GLOBAL ---------- */
+    html, body {
+        width: 100%;
         overflow-x: hidden;
     }
 
-    .container,
-    .row,
-    [class*="col-"] {
-        max-width: 100% !important;
-        padding-left: 12px !important;
-        padding-right: 12px !important;
-        margin: 0 auto;
+    section {
+        padding: 40px 14px !important;
     }
 
-    /* CARD */
+    /* ---------- CONTAINER & GRID ---------- */
+    .container,
+    .container-fluid {
+        max-width: 100% !important;
+        padding-left: 14px !important;
+        padding-right: 14px !important;
+    }
+
+    .row {
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    [class*="col-"] {
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    /* ---------- HERO ---------- */
+    .hero-section h1 {
+        font-size: 2rem;
+        line-height: 1.3;
+    }
+
+    .hero-section p {
+        font-size: 15px;
+        line-height: 1.6;
+    }
+
+    /* ---------- ABOUT ---------- */
+    .about-section {
+        padding: 22px 20px;
+        border-radius: 14px;
+    }
+
+    .profile-image img {
+        width: 170px;
+        height: 170px;
+        margin-bottom: 16px;
+    }
+
+    .name {
+        font-size: 22px;
+        text-align: center;
+    }
+
+    .role {
+        font-size: 16px;
+        text-align: center;
+    }
+
+    .description {
+        font-size: 15px;
+        text-align: center;
+        line-height: 1.6;
+    }
+
+    .btn-download {
+        width: 100%;
+        max-width: 260px;
+        margin: 16px auto 0;
+        display: block;
+        text-align: center;
+    }
+
+    /* ---------- SECTION TITLE ---------- */
+    .section-title {
+        font-size: 22px;
+        margin-bottom: 28px;
+    }
+
+    /* ---------- CARD (SEMUA) ---------- */
     .experience-card,
     .education-card,
-    .organization-card {
+    .organization-card,
+    .skill-card,
+    .project-card {
         width: 100%;
         padding: 20px;
+        border-radius: 14px;
+        margin-bottom: 22px;
     }
 
-    /* BADGE */
+    /* ---------- JARAK ANTAR CARD ---------- */
+    .row > div {
+        margin-bottom: 22px;
+    }
+
+    .row > div:last-child {
+        margin-bottom: 0;
+    }
+
+    /* ---------- BADGE ---------- */
     .experience-badge {
-        display: inline-block;
+        font-size: 12px;
+        padding: 6px 14px;
         max-width: 100%;
         white-space: normal;
-        font-size: 12px;
     }
 
-    /* TITLE */
+    /* ---------- CARD TITLE ---------- */
     .experience-card h4,
     .experience-card h5 {
-        font-size: 18px;
+        font-size: 17px;
         line-height: 1.4;
         word-break: break-word;
     }
 
-    /* LIST FIX (INI BIANG KEROK) */
+    .experience-card p {
+        font-size: 14px;
+        line-height: 1.6;
+    }
+
+    /* ---------- LIST FIX (PENTING) ---------- */
     .experience-card ul {
         padding-left: 18px;
+        margin-top: 10px;
         margin-bottom: 0;
     }
 
     .experience-card ul li {
         font-size: 14px;
         line-height: 1.6;
+        margin-bottom: 6px;
         word-break: break-word;
     }
 
-    /* MATIKAN SEMUA TRANSLATE */
+    /* ---------- PROJECT ---------- */
+    .project-card img {
+        height: 160px;
+        object-fit: cover;
+    }
+
+    /* ---------- VIDEO ---------- */
+    .video-wrapper {
+        aspect-ratio: 9 / 16;
+    }
+
+    /* ---------- FOOTER ---------- */
+    .footer-section {
+        padding: 30px 15px;
+        font-size: 14px;
+    }
+
+    /* ---------- MATIKAN ANIMASI GESER ---------- */
     .animate,
     .animate-left,
     .animate-right {
         transform: none !important;
+        opacity: 1;
     }
 }
 
