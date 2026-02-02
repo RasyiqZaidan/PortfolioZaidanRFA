@@ -11,6 +11,94 @@
     <link rel="shortcut icon" href="img/logos.png" type="image/x-icon">
     <!-- Custom CSS -->
 <style>
+    /* ===== NAVBAR MODERN ===== */
+.custom-navbar {
+    background: linear-gradient(135deg, #00b8e6, #009fc7);
+    padding: 12px 0;
+    transition: all 0.3s ease;
+}
+
+.custom-navbar.scrolled {
+    box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+}
+
+/* Logo */
+.custom-navbar .logo-img {
+    max-height: 40px;
+}
+
+.custom-navbar .logo-text {
+    font-weight: 800;
+    color: #fff;
+    letter-spacing: 1px;
+}
+
+/* Link */
+.custom-navbar .nav-link {
+    color: #fff !important;
+    font-weight: 600;
+    padding: 8px 14px;
+    border-radius: 20px;
+    transition: all 0.3s ease;
+}
+
+.custom-navbar .nav-link:hover,
+.custom-navbar .nav-link.active {
+    background: rgba(255,255,255,0.2);
+    color: #fff !important;
+}
+/* Dropdown Navbar */
+.navbar .dropdown-menu {
+    border-radius: 14px;
+    border: none;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+    padding: 10px;
+}
+
+.navbar .dropdown-item {
+    font-weight: 600;
+    padding: 10px 16px;
+    border-radius: 10px;
+    transition: all 0.2s ease;
+}
+
+.navbar .dropdown-item:hover {
+    background: #00b8e6;
+    color: #fff;
+}
+
+/* Mobile dropdown */
+@media (max-width: 768px) {
+    .navbar .dropdown-menu {
+        position: static;
+        box-shadow: none;
+        background: transparent;
+        padding: 0;
+    }
+
+    .navbar .dropdown-item {
+        background: rgba(255,255,255,0.15);
+        color: #fff;
+        margin-bottom: 6px;
+    }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+    .custom-navbar .navbar-nav {
+        background: #00b8e6;
+        border-radius: 12px;
+        padding: 15px;
+        margin-top: 10px;
+    }
+
+    .custom-navbar .nav-link {
+        display: block;
+        text-align: center;
+        margin-bottom: 8px;
+    }
+}
+
      /* Atur ukuran maksimal gambar logo agar tidak terlalu panjang */
 .logo-img {
     max-height: 40px; /* Tinggi maksimal */
@@ -860,26 +948,60 @@
 </head>
 <body>
    <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-light">
-        <div class="container">
-            <a class="navbar-brand" href="#">
-                <img src="img/logo.png" alt="Logo" class="logo-img" style="max-height: 40px;">
-                <span class="logo-text">PORTFOLIO-ZAIDAN</span>
-            </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link" href="#">Tentang Saya</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#Pengalaman">Pengalaman</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#Portfolio">Projek</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#Keahlian">Keahlian</a></li>
-                </ul>
-            </div>
+   <nav class="navbar navbar-expand-lg navbar-dark fixed-top custom-navbar">
+    <div class="container">
+        <a class="navbar-brand d-flex align-items-center gap-2" href="#top">
+            <img src="img/logo.png" alt="Logo" class="logo-img">
+            <span class="logo-text">PORTFOLIO-ZAIDAN</span>
+        </a>
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarNav">
+<ul class="navbar-nav ms-auto align-items-lg-center gap-lg-2">
+
+    <li class="nav-item">
+        <a class="nav-link" href="#top">Home</a>
+    </li>
+
+    <li class="nav-item">
+        <a class="nav-link" href="#pengalaman">Pengalaman</a>
+    </li>
+
+    <li class="nav-item">
+        <a class="nav-link" href="#Portfolio">Projek</a>
+    </li>
+
+    <li class="nav-item">
+        <a class="nav-link" href="#Keahlian">Keahlian</a>
+    </li>
+
+    <!-- DROPDOWN -->
+    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle"
+           href="#"
+           id="navbarDropdown"
+           role="button"
+           data-bs-toggle="dropdown"
+           aria-expanded="false">
+           Lainnya
+        </a>
+
+        <ul class="dropdown-menu dropdown-menu-end">
+            <li><a class="dropdown-item" href="#pendidikan">Pendidikan</a></li>
+            <li><a class="dropdown-item" href="#organisasi">Organisasi</a></li>
+            <li><a class="dropdown-item" href="#talent">Talent</a></li>
+        </ul>
+    </li>
+
+</ul>
+
         </div>
-    </nav>
-    
+    </div>
+</nav>
+
 <!-- About Section -->
 <div class="about-section container my-5 animate animate-zoom">
     <div class="row align-items-center">
@@ -1352,8 +1474,8 @@
     </div>
 </section>
 <!-- TALENT / TIKTOK SHOWCASE -->
-<section class="container my-5" id="talent">
-    <h2 class="section-title text-center">Talent & Video Showcase</h2>
+<section class="container my-5">
+    <h2 class="section-title text-center"  id="talent">Talent & Video Showcase</h2>
     <p class="text-center text-muted mb-4">
         Video berikut merupakan project pribadi serta pengalaman saya sebagai talent konten.<br>
 Saya pernah berkolaborasi sebagai talent TikTok untuk brand MKB99.
